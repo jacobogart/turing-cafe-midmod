@@ -5,13 +5,23 @@ export default class ResyForm extends Component {
     super(props);
     this.state = {
       name: '',
+      date: '',
+      time: '',
+      number: 0
     }
-    
+  }
+
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   }
   
   render() {
     return (
-      <form className="ResyForm">
+      <form 
+        className="ResyForm"
+        onChange={this.handleChange}
+      >
         <input
           type="text"
           name="name"
