@@ -11,7 +11,7 @@ export default class ResyForm extends Component {
   
   render() {
     return (
-      <form>
+      <form className="ResyForm">
         <input
           type="text"
           name="name"
@@ -36,7 +36,11 @@ export default class ResyForm extends Component {
           placeholder="Number of guests"
           value={this.state.number}
         />
-        <input type='submit' value="Make Reservation" /> 
+        <input
+          type="submit"
+          value="Make Reservation"
+          className="submit-btn"
+        />
       </form>
     );
   }
