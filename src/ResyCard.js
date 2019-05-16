@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ResyCard = (props) => {
-  console.log(props);
   const { name, date, time, number } = props.resyData;
   return (
     <article className="ResyCard">

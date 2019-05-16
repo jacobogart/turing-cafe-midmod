@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { fetchAddReservation } from './api/fetchAddReservation';
 
 export default class ResyForm extends Component {
   constructor(props) {
@@ -7,7 +8,8 @@ export default class ResyForm extends Component {
       name: '',
       date: '',
       time: '',
-      number: 0
+      number: 0,
+      error: ''
     }
   }
 
@@ -15,12 +17,20 @@ export default class ResyForm extends Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    fetchAddReservation(this.state)
+      .then(newResy => this.props.addNewResy(newResy))
+      .catch(error => this.props.setError(error))
+  }
   
   render() {
     return (
       <form 
         className="ResyForm"
         onChange={this.handleChange}
+        onSubmit={this.handleSubmit}
       >
         <input
           type="text"

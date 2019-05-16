@@ -23,6 +23,12 @@ body {
   font-size: 50px;
 }
 
+.error-msg {
+  color: red;
+  font-size: 24px;
+  text-align: center;
+}
+
 .ResyForm {
   width: 80%;
   display: flex;
