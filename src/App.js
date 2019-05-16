@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import { fetchReservations } from '../api/fetchReservations';
-import ResyContainer from '../ResyContainer/ResyContainer';
+import { fetchReservations } from './api/fetchReservations';
+import ResyContainer from './ResyContainer';
 
 class App extends Component {
   constructor() {
