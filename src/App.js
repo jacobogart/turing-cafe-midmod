@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchReservations } from './api/fetchReservations';
 import ResyContainer from './ResyContainer';
+import ResyForm from './ResyForm';
 
 class App extends Component {
   constructor() {
@@ -22,6 +23,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
+          <ResyForm />
           <ResyContainer reservations={reservations}/>
       </div>
     )
