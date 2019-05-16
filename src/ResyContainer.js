@@ -8,6 +8,7 @@ const ResyContainer = (props) => {
     <ResyCard 
       resyData={resy} 
       key={resy.id}
+      deleteResy={props.deleteResy}
     />)
   return (
     <section className="ResyContainer">

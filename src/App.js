@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchReservations } from './api/fetchReservations';
 import ResyContainer from './ResyContainer';
 import ResyForm from './ResyForm';
+import { fetchDeleteResy } from './api/fetchDeleteResy';
 
 class App extends Component {
   constructor() {
@@ -21,7 +22,6 @@ class App extends Component {
   }
 
   addNewResy = (resy) => {
-    console.log(resy);
     this.setState({
       reservations: [...this.state.reservations, resy]
     });
@@ -29,6 +29,13 @@ class App extends Component {
 
   setError = (error) => {
     this.setState({ error })
+  }
+
+  deleteResy = id => {
+    console.log(id);
+    fetchDeleteResy(id).then(reservations =>
+      this.setState({ reservations })
+    );
   }
   
   render() {
@@ -38,7 +45,7 @@ class App extends Component {
         <h1 className="app-title">Turing Cafe Reservations</h1>
         {error && <p className="error-msg">{error}</p>}
         <ResyForm addNewResy={this.addNewResy} setError={this.setError} />
-        <ResyContainer reservations={reservations} />
+        <ResyContainer reservations={reservations} deleteResy={this.deleteResy}/>
       </div>
     );
   }
